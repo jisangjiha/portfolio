@@ -1,0 +1,76 @@
+@import url("https://db.onlinewebfonts.com/c/440b53b1a1c65037f944ff19259d8014?family=Nokia+Cellphone+FC+Small");
+@import "tailwindcss";
+
+@theme {
+  /* Latin uses Inter/Instrument; Korean falls back to Nanum Myeongjo automatically */
+  --font-instrument: "Instrument Serif", "Nanum Myeongjo", serif;
+  --font-serif: "Instrument Serif", "Nanum Myeongjo", serif;
+  --font-sans: "Inter", "Nanum Myeongjo", sans-serif;
+  --font-kr: "Nanum Myeongjo", serif;
+  --font-nokia: "Nokia Cellphone FC Small", monospace;
+
+  /* Cool summer palette (sampled from the hero video) */
+  --color-ink: #15323a;
+  --color-sky: #f2fafc;
+  --color-aqua: #cfe9f3;
+  --color-aqua-soft: #e7f4f9;
+  --color-ocean: #0e8fb5;
+  --color-accent: #0871e7;
+  --color-dot: #2a3616;
+  --color-sand: #f5e9d2;
+}
+
+@utility font-instrument {
+  font-family: "Instrument Serif", "Nanum Myeongjo", serif;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-sky);
+  overflow: hidden; /* the snap-deck container handles scrolling */
+}
+
+/* Retro custom cursor: hide the native cursor on pointer-capable devices */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Keep keyboard focus visible (accessibility) */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* Full-screen snap deck */
+.deck {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.deck::-webkit-scrollbar {
+  display: none;
+}
+.scene {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}

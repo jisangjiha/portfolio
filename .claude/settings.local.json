@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(command -v pnpm yarn)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(:)",
+      "Bash(curl -s -o /dev/null -w \"status %{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(curl -s http://localhost:5173/src/main.tsx)",
+      "Bash(curl -s \"http://localhost:5173/src/App.tsx\")"
+    ]
+  }
+}

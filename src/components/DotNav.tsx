@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const SCENES = [
   { id: "home", label: "홈" },
   { id: "about", label: "자기소개" },
+  { id: "skills", label: "스킬" },
   { id: "portfolio", label: "포트폴리오" },
   { id: "contact", label: "연락처" },
 ];

@@ -93,7 +93,7 @@ export default function Portfolio() {
       <div className="mx-auto w-full max-w-6xl">
         <div className="mb-6">
           <p className="font-nokia mb-2 text-[12px] tracking-widest text-ocean">
-            02 — PORTFOLIO
+            03 — PORTFOLIO
           </p>
           <h2 className="font-instrument text-[30px] leading-none tracking-tight text-ink md:text-[44px]">
             팀 · 개인 프로젝트

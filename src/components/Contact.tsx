@@ -29,7 +29,7 @@ export default function Contact() {
         transition={{ duration: 0.7, ease: EASE }}
         className="font-nokia mb-4 text-[12px] tracking-widest text-ocean"
       >
-        03 — CONTACT
+        04 — CONTACT
       </motion.p>
 
       <motion.h2

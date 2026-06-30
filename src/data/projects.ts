@@ -113,23 +113,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const skills = {
-  Frontend: [
-    "HTML & CSS",
-    "CSS Module & SCSS",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Chakra UI",
-    "Axios",
-    "Vite",
-    "Storybook",
-    "Playwright",
-  ],
-  "Collab Tool": ["VS Code", "Git & GitHub", "Notion", "Figma", "Slack"],
-};
-
 export const contact = {
   email: "nobledjs@naver.com",
   github: "https://github.com/jisangjiha",

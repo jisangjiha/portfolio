@@ -22,15 +22,17 @@ export default function TravelingPhone() {
       const vh = deck.clientHeight || window.innerHeight;
       const st = deck.scrollTop;
       const p = Math.min(1, Math.max(0, st / vh));
-      const e = p * p * (3 - 2 * p); // smoothstep
-      const tx = lerp(0, -32, e); // vw: centre → left
-      const ty = lerp(-30, 0, e); // vh: top → centre
-      const sc = lerp(0.6, 0.82, e);
-      const ry = lerp(0, -16, e); // deg
-      const op = Math.min(1, e * 2.5);
+      // stay fully hidden over the hero — only emerge later, once well past it
+      const q = Math.min(1, Math.max(0, (p - 0.6) / 0.4));
+      const e = q * q * (3 - 2 * q); // smoothstep
+      const tx = lerp(0, -30, e); // vw: centre → left
+      const ty = lerp(-14, -4, e); // vh: emerge from above, dock a touch high
+      const sc = lerp(0.82, 0.92, e);
+      const op = Math.min(1, q * 1.8);
       const el = wrap.current;
       if (el) {
-        el.style.transform = `translate(-50%,-50%) translate(${tx}vw,${ty}vh) scale(${sc}) rotateY(${ry}deg)`;
+        // front-facing (no rotateY tilt)
+        el.style.transform = `translate(-50%,-50%) translate(${tx}vw,${ty}vh) scale(${sc})`;
         el.style.opacity = String(op);
       }
       const a = Math.min(4, Math.round(st / vh));
@@ -74,7 +76,7 @@ export default function TravelingPhone() {
             src={phoneFront}
             alt=""
             draggable={false}
-            className="h-[62vh] max-h-[540px] w-auto drop-shadow-2xl"
+            className="h-[72vh] max-h-[620px] w-auto drop-shadow-2xl"
           />
           <div
             className="absolute flex items-center justify-center text-center"

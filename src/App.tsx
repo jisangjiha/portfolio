@@ -2,7 +2,6 @@ import SummerBackground from "./components/SummerBackground";
 import SandTrail from "./components/SandTrail";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
-import DotNav from "./components/DotNav";
 import TravelingPhone from "./components/TravelingPhone";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -17,7 +16,6 @@ export default function App() {
       <SandTrail />
       <CustomCursor />
       <Navbar />
-      <DotNav />
       <TravelingPhone />
       <div id="deck" className="deck">
         <Hero />

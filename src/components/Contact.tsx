@@ -21,7 +21,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="scene relative flex h-screen w-full flex-col items-center justify-center overflow-hidden px-6 text-center md:pl-[40vw]"
+      className="scene relative flex min-h-screen w-full flex-col items-center justify-center px-6 py-24 text-center md:pl-[40vw]"
     >
       <motion.h2
         initial={{ opacity: 0, scale: 0.96 }}

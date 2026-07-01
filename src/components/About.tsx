@@ -25,9 +25,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="scene relative flex h-screen w-full items-center justify-center overflow-hidden px-6 md:justify-start md:pl-[40vw]"
+      className="scene relative flex min-h-screen w-full items-center justify-center px-6 py-24 md:justify-start md:pl-[40vw]"
     >
-      <div className="mx-auto w-full max-w-2xl">
+      <div className="w-full max-w-2xl">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

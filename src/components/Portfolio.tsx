@@ -14,9 +14,9 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="scene relative flex h-screen w-full items-center justify-center overflow-hidden px-6 py-20 md:justify-start md:pl-[40vw]"
+      className="scene relative flex min-h-screen w-full items-center justify-center px-6 py-20 md:justify-start md:pl-[40vw]"
     >
-      <div className="mx-auto w-full max-w-3xl">
+      <div className="w-full max-w-2xl">
         <div className="mb-5">
           <h2 className="font-round text-[22px] leading-tight tracking-tight text-ink md:text-[30px]">
             <TypingText text="팀 · 개인 프로젝트" />

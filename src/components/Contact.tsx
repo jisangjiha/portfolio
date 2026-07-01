@@ -20,7 +20,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="scene relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#e7f4f9] via-[#cfe9f3] to-[#aedced] px-6 text-center"
+      className="scene relative flex h-screen w-full flex-col items-center justify-center overflow-hidden px-6 text-center md:pl-[40vw]"
     >
       <motion.p
         initial={{ opacity: 0, y: 20 }}

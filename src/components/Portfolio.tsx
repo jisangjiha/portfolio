@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { projects } from "../data/projects";
+import ProjectModal from "./ProjectModal";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const N = projects.length;
@@ -83,6 +84,7 @@ function RetroMenu({
 
 export default function Portfolio() {
   const [selected, setSelected] = useState(0);
+  const [open, setOpen] = useState(false);
   const p = projects[selected];
 
   return (
@@ -173,30 +175,22 @@ export default function Portfolio() {
                     </p>
                   )}
 
-                  <ul className="mt-4 space-y-1.5">
-                    {p.highlights.map((h) => (
-                      <li
-                        key={h}
-                        className="flex gap-2 text-[13.5px] leading-snug text-ink/80"
-                      >
-                        <span className="mt-[2px] text-ocean">▸</span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-5 flex flex-wrap gap-1.5">
-                    {p.stack.map((s) => (
-                      <span
-                        key={s}
-                        className="rounded-md bg-ocean/10 px-2 py-1 text-[11px] text-ocean"
-                      >
-                        {s}
-                      </span>
-                    ))}
+                  <div className="mt-5">
+                    <p className="font-nokia text-[11px] tracking-wide text-ocean">
+                      기획 의도
+                    </p>
+                    <p className="mt-1.5 text-[14px] leading-relaxed text-ink/75">
+                      {p.intent}
+                    </p>
                   </div>
 
-                  <div className="mt-auto flex gap-4 pt-6">
+                  <div className="mt-auto flex flex-wrap items-center gap-4 pt-6">
+                    <button
+                      onClick={() => setOpen(true)}
+                      className="rounded-full bg-ink px-4 py-2 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
+                    >
+                      Read more
+                    </button>
                     {p.links.map((link) => (
                       <a
                         key={link.href}
@@ -216,6 +210,8 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
+
+      <ProjectModal project={open ? p : null} onClose={() => setOpen(false)} />
     </section>
   );
 }

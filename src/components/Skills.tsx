@@ -16,7 +16,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="scene relative flex h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-b from-white via-[#eaf6fb] to-[#f2fafc] px-6"
+      className="scene relative flex h-screen w-full items-center justify-center overflow-hidden px-6 md:justify-start md:pl-[40vw]"
     >
       <div className="mx-auto w-full max-w-5xl">
         <motion.p

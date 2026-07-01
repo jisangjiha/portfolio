@@ -2,11 +2,11 @@
 @import "tailwindcss";
 
 @theme {
-  /* Latin uses Inter/Instrument; Korean falls back to Nanum Myeongjo automatically */
-  --font-instrument: "Instrument Serif", "Nanum Myeongjo", serif;
-  --font-serif: "Instrument Serif", "Nanum Myeongjo", serif;
-  --font-sans: "Inter", "Nanum Myeongjo", sans-serif;
-  --font-kr: "Nanum Myeongjo", serif;
+  /* Latin uses Inter/Instrument; Korean falls back to a matching serif automatically */
+  --font-instrument: "Instrument Serif", "Song Myung", serif;
+  --font-serif: "Instrument Serif", "Song Myung", serif;
+  --font-sans: "Inter", "Noto Serif KR", sans-serif;
+  --font-kr: "Noto Serif KR", serif;
   --font-nokia: "Nokia Cellphone FC Small", monospace;
 
   /* Cool summer palette (sampled from the hero video) */
@@ -21,7 +21,7 @@
 }
 
 @utility font-instrument {
-  font-family: "Instrument Serif", "Nanum Myeongjo", serif;
+  font-family: "Instrument Serif", "Song Myung", serif;
 }
 
 :root {
@@ -73,4 +73,39 @@ body {
 .scene {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+/* drifting waves (SummerBackground) */
+@keyframes wave-drift-a {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -240px;
+  }
+}
+@keyframes wave-drift-b {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 240px;
+  }
+}
+
+@keyframes heroZoom {
+  0% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.hero-zoom {
+  animation: heroZoom 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-zoom {
+    animation: none;
+  }
 }

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import TypingText from "./TypingText";
 import { frontendSkills, collabTools, type Skill } from "../data/skills";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -19,24 +20,14 @@ export default function Skills() {
       className="scene relative flex h-screen w-full items-center justify-center overflow-hidden px-6 md:justify-start md:pl-[40vw]"
     >
       <div className="mx-auto w-full max-w-5xl">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="font-nokia mb-4 text-[12px] tracking-widest text-ocean"
-        >
-          02 — SKILLS
-        </motion.p>
-
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: EASE }}
-          className="font-instrument text-[30px] leading-[1.1] tracking-tight text-ink md:text-[46px]"
+          className="font-round text-[22px] leading-[1.3] tracking-tight text-ink md:text-[32px]"
         >
-          기술을 이렇게 활용합니다
+          <TypingText text="기술을 이렇게 활용합니다" />
         </motion.h2>
 
         <motion.div

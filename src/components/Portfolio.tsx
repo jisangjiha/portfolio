@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import TypingText from "./TypingText";
 import { projects } from "../data/projects";
 import ProjectModal from "./ProjectModal";
 
@@ -17,11 +18,8 @@ export default function Portfolio() {
     >
       <div className="mx-auto w-full max-w-3xl">
         <div className="mb-5">
-          <p className="font-nokia mb-2 text-[12px] tracking-widest text-ocean">
-            03 — PORTFOLIO
-          </p>
-          <h2 className="font-instrument text-[28px] leading-none tracking-tight text-ink md:text-[40px]">
-            팀 · 개인 프로젝트
+          <h2 className="font-round text-[22px] leading-tight tracking-tight text-ink md:text-[30px]">
+            <TypingText text="팀 · 개인 프로젝트" />
           </h2>
         </div>
 
@@ -86,7 +84,9 @@ export default function Portfolio() {
                 {p.tagline}
               </p>
               {p.team && (
-                <p className="mt-1 text-[12px] text-ink/45">팀 구성 · {p.team}</p>
+                <p className="mt-1 text-[12px] text-ink/45">
+                  팀 구성 · {p.team}
+                </p>
               )}
               <div className="mt-4">
                 <p className="font-nokia text-[11px] tracking-wide text-ocean">

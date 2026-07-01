@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import TypingText from "./TypingText";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -18,7 +19,7 @@ const career = [
 const cardBase =
   "rounded-2xl border border-ocean/15 bg-white/60 p-5 backdrop-blur-sm";
 const cardLabel =
-  "font-nokia text-[10px] font-semibold tracking-wide text-ocean uppercase";
+  "text-[10px] font-semibold tracking-wide text-ocean uppercase";
 
 export default function About() {
   return (
@@ -27,24 +28,14 @@ export default function About() {
       className="scene relative flex h-screen w-full items-center justify-center overflow-hidden px-6 md:justify-start md:pl-[40vw]"
     >
       <div className="mx-auto w-full max-w-2xl">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="font-nokia mb-4 text-[12px] tracking-widest text-ocean"
-        >
-          01 — ABOUT
-        </motion.p>
-
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: EASE }}
-          className="font-instrument mb-8 text-[30px] leading-[1.15] tracking-tight text-ink md:text-[46px]"
+          className="font-round mb-8 text-[22px] leading-[1.4] tracking-tight text-ink md:text-[32px]"
         >
-          프론트엔드 개발자 홍지상입니다.
+          <TypingText text="프론트엔드 개발자 홍지상입니다." />
         </motion.h2>
 
         {/* 경력 / 소개글 */}

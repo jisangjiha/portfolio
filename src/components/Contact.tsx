@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import TypingText from "./TypingText";
 import { contact } from "../data/projects";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -22,24 +23,14 @@ export default function Contact() {
       id="contact"
       className="scene relative flex h-screen w-full flex-col items-center justify-center overflow-hidden px-6 text-center md:pl-[40vw]"
     >
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7, ease: EASE }}
-        className="font-nokia mb-4 text-[12px] tracking-widest text-ocean"
-      >
-        04 — CONTACT
-      </motion.p>
-
       <motion.h2
         initial={{ opacity: 0, scale: 0.96 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 1, ease: EASE }}
-        className="font-instrument text-[44px] leading-[0.95] tracking-tight text-ink md:text-[72px]"
+        className="font-round text-[32px] leading-tight tracking-tight text-ink md:text-[52px]"
       >
-        Let&apos;s talk.
+        <TypingText text="Let's talk." />
       </motion.h2>
 
       <motion.p

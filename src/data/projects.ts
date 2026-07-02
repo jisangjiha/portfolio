@@ -6,6 +6,13 @@ import bagel from "../assets/bagel.png";
 
 export type ProjectLink = { label: string; href: string };
 
+// 링크 버튼 표시 순서: GitHub 먼저, 그다음 Live
+const LINK_ORDER: Record<string, number> = { GitHub: 0, Live: 1 };
+export const orderLinks = (links: ProjectLink[]) =>
+  [...links].sort(
+    (a, b) => (LINK_ORDER[a.label] ?? 9) - (LINK_ORDER[b.label] ?? 9),
+  );
+
 export type Contribution = { head: string; body?: string };
 export type Trouble = {
   title?: string;
@@ -249,7 +256,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "베이글 프로젝트",
+    name: "Bagel",
     lcd: "Bagel",
     tagline: "Ess-a-Bagel을 참고한 커스텀 베이글 주문 서비스",
     intent:

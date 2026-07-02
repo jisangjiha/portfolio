@@ -9,8 +9,6 @@
 export const typo = {
   /** 섹션 라벨 — 대문자 eyebrow (CAREER, FRONTEND, EMAIL…) */
   eyebrow: "text-[14px] font-semibold tracking-wide text-ocean uppercase",
-  /** 레트로 픽셀 마이크로 라벨 (기획 의도, group·period…) */
-  eyebrowPixel: "font-nokia text-[12px] tracking-wide text-ocean",
   /** 핵심 라인 아이템 — 회사명 / 이메일값 / 스킬명 */
   lead: "text-[18px]",
   /** 본문 단락 */

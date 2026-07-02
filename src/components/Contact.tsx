@@ -5,6 +5,20 @@ import { contact } from "../data/projects";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+// Shared glossy-blue pill (the original "이메일 보내기" button design), reused
+// by both the copy-email and open-GitHub actions.
+const ACTION_BTN =
+  "group relative shrink-0 overflow-hidden rounded-full bg-[#0871E7] px-4 py-3 text-[13px] text-white shadow-[inset_0_-3px_3px_rgba(255,255,255,0.39)] outline-1 -outline-offset-1 outline-[#0871E7]";
+
+function ButtonShine() {
+  return (
+    <span
+      className="absolute top-[1px] left-[10%] h-4 w-[80%] rounded-[12px] bg-gradient-to-b from-[#DEF0FC] to-transparent transition-transform duration-300 group-hover:scale-x-105"
+      aria-hidden
+    />
+  );
+}
+
 export default function Contact() {
   const [copied, setCopied] = useState(false);
 
@@ -14,9 +28,11 @@ export default function Contact() {
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      /* clipboard unavailable — mailto link still works */
+      /* clipboard unavailable */
     }
   };
+
+  const githubDisplay = contact.github.replace(/^https?:\/\//, "");
 
   return (
     <section
@@ -30,7 +46,7 @@ export default function Contact() {
         transition={{ duration: 1, ease: EASE }}
         className="font-round text-[32px] leading-tight tracking-tight text-ink md:text-[52px]"
       >
-        <TypingText text="Let's talk." />
+        <TypingText text="Get in touch!" />
       </motion.h2>
 
       <motion.p
@@ -40,7 +56,9 @@ export default function Contact() {
         transition={{ duration: 0.9, delay: 0.15, ease: EASE }}
         className="mt-5 max-w-md text-[16px] leading-relaxed text-ink/70"
       >
-        함께 일하고 싶거나 궁금한 점이 있다면 언제든 연락 주세요.
+        더 궁금한 점이 있다면 언제든 연락 주세요.
+        <br />
+        새로운 기회를 기다리고 있습니다.
       </motion.p>
 
       <motion.div
@@ -48,54 +66,45 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
-        className="mt-10 flex flex-col items-center gap-4"
+        className="mt-10 flex w-full max-w-md flex-col gap-6"
       >
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <a
-            href={`mailto:${contact.email}`}
-            className="group relative overflow-hidden rounded-full bg-[#0871E7] px-6 py-3 text-[15px] text-white shadow-[inset_0_-4px_4px_rgba(255,255,255,0.39)] outline-1 -outline-offset-1 outline-[#0871E7]"
-          >
-            <span
-              className="absolute top-[1px] left-[10%] h-4 w-[80%] rounded-[12px] bg-gradient-to-b from-[#DEF0FC] to-transparent transition-transform duration-300 group-hover:scale-x-105"
-              aria-hidden
-            />
-            <span className="relative">이메일 보내기</span>
-          </a>
-          <button
-            onClick={copyEmail}
-            className="rounded-full border border-ink/15 bg-white/70 px-6 py-3 text-[15px] text-ink backdrop-blur-sm transition-colors hover:bg-white"
-          >
-            {copied ? "복사됨 ✓" : "이메일 복사"}
+        {/* EMAIL: 라벨 + 주소 | 복사하기 */}
+        <div className="flex items-center justify-between gap-4 border-b border-ink/15 pb-3">
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-[11px] font-semibold tracking-wide text-ocean uppercase">
+              Email
+            </p>
+            <p className="mt-0.5 truncate text-[18px] text-ink/80">
+              {contact.email}
+            </p>
+          </div>
+          <button onClick={copyEmail} data-cursor="link" className={ACTION_BTN}>
+            <ButtonShine />
+            <span className="relative">{copied ? "복사됨 ✓" : "복사하기"}</span>
           </button>
         </div>
 
-        <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[14px] text-ink/70">
-          <li>{contact.email}</li>
-          <li aria-hidden className="text-ink/25">
-            ·
-          </li>
-          <li>
-            <a
-              href={contact.github}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-opacity hover:opacity-60"
-            >
+        {/* GITHUB: 라벨 + 주소 | 바로가기 */}
+        <div className="flex items-center justify-between gap-4  pb-3">
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-[11px] font-semibold tracking-wide text-ocean uppercase">
               GitHub
-            </a>
-          </li>
-          <li aria-hidden className="text-ink/25">
-            ·
-          </li>
-          <li>
-            <a
-              href={`tel:${contact.phone.replace(/-/g, "")}`}
-              className="transition-opacity hover:opacity-60"
-            >
-              {contact.phone}
-            </a>
-          </li>
-        </ul>
+            </p>
+            <p className="mt-0.5 truncate text-[18px] text-ink/80">
+              {githubDisplay}
+            </p>
+          </div>
+          <a
+            href={contact.github}
+            target="_blank"
+            rel="noreferrer"
+            data-cursor="link"
+            className={ACTION_BTN}
+          >
+            <ButtonShine />
+            <span className="relative">바로가기</span>
+          </a>
+        </div>
       </motion.div>
 
       <p className="font-nokia absolute bottom-8 text-[11px] text-ink/45">

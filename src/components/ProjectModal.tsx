@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Project, DetailBlock } from "../data/projects";
+import { orderLinks } from "../data/projects";
 import { typo } from "../typeScale";
+import ActionButton from "./ActionButton";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -129,7 +131,7 @@ export default function ProjectModal({
             {/* header */}
             <div className="flex items-start justify-between gap-4 border-b border-ink/10 px-6 py-5">
               <div className="min-w-0">
-                <span className={typo.eyebrowPixel}>
+                <span className="text-[12px] font-semibold tracking-wide text-ocean">
                   {project.group} · {project.period}
                 </span>
                 <h3 className="font-instrument text-[30px] leading-none tracking-tight text-ink">
@@ -166,18 +168,11 @@ export default function ProjectModal({
                 <Block key={block.title} block={block} />
               ))}
 
-              <div className="flex gap-4 border-t border-ink/10 pt-4">
-                {project.links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`inline-flex items-center gap-1 ${typo.bodySm} font-medium text-accent transition-opacity hover:opacity-60`}
-                  >
-                    {l.label}
-                    <span aria-hidden>↗</span>
-                  </a>
+              <div className="flex flex-wrap gap-2 border-t border-ink/10 pt-5">
+                {orderLinks(project.links).map((l) => (
+                  <ActionButton key={l.href} size="sm" href={l.href}>
+                    {l.label} ↗
+                  </ActionButton>
                 ))}
               </div>
             </div>

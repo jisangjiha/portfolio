@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import phoneFront from "../assets/phone_front.png";
 
-const SECTIONS = ["ABOUT", "SKILLS", "PORTFOLIO", "CONTACT"];
+const SECTIONS = ["ABOUT", "SKILLS", "PROJECT", "CONTACT"];
 const SECTION_IDS = ["about", "skills", "portfolio", "contact"];
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 

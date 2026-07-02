@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import TypingText from "./TypingText";
+import { typo } from "../typeScale";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -18,7 +19,7 @@ const career = [
 
 // 흰 박스 대신 얇은 ocean 좌측 선 (Skills 섹션과 통일된 언어)
 const cardBase = "border-l-[3px] border-ocean/55 pl-5";
-const cardLabel = "text-[16px] font-bold tracking-wide text-ocean uppercase";
+const cardLabel = typo.eyebrow;
 
 export default function About() {
   return (
@@ -52,17 +53,17 @@ export default function About() {
                 key={c.period}
                 className="flex flex-wrap items-baseline gap-x-4 gap-y-1"
               >
-                <span className="w-[160px] shrink-0 text-[16px]  text-ink">
+                <span className={`w-[160px] shrink-0 ${typo.meta} text-ink`}>
                   {c.period}
                 </span>
-                <span className="text-[18px] font-medium text-ink">
+                <span className={`${typo.lead} font-medium text-ink`}>
                   {c.org}
                 </span>
-                <span className="text-[16px] text-ink/60">{c.role}</span>
+                <span className={`${typo.bodySm} text-ink/60`}>{c.role}</span>
               </li>
             ))}
           </ul>
-          <p className="mt-5 text-[17px] leading-relaxed text-ink/80">
+          <p className={`mt-5 ${typo.body} text-ink/80`}>
             매출 데이터와 고객 니즈를 분석해 프로모션을 기획하던 영업 MD에서
             이제는 <b>사용자의 불편을 정의하고 화면으로 풀어내는 개발자</b>가
             되었습니다.
@@ -84,7 +85,7 @@ export default function About() {
           className={`mt-8 ${cardBase}`}
         >
           <p className={cardLabel}>Long Runner</p>
-          <p className="mt-4 text-[17px] leading-relaxed text-ink/80">
+          <p className={`mt-4 ${typo.body} text-ink/80`}>
             어떤 환경에서도 빠르게 적응하는 <b>유연함</b>과, 시작한 일은
             포기하지 않는 <b>끈기</b>가 가장 큰 무기입니다. 취미로 블로그와
             유튜브를 수년간 운영하며 <b>수익화까지 달성</b>해냈습니다. 이처럼

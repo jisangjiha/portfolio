@@ -2,13 +2,14 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import TypingText from "./TypingText";
 import { contact } from "../data/projects";
+import { typo } from "../typeScale";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 // Shared glossy-blue pill (the original "이메일 보내기" button design), reused
 // by both the copy-email and open-GitHub actions.
 const ACTION_BTN =
-  "group relative shrink-0 overflow-hidden rounded-full bg-[#0871E7] px-4 py-3 text-[13px] text-white shadow-[inset_0_-3px_3px_rgba(255,255,255,0.39)] outline-1 -outline-offset-1 outline-[#0871E7]";
+  "group relative shrink-0 overflow-hidden rounded-full bg-[#0871E7] px-4 py-3 text-[13px] text-white shadow-[inset_0_-3px_3px_rgba(255,255,255,0.39)] outline-1 -outline-offset-1 outline-[#0871E7]"; // text-[13px] = typo.chip
 
 function ButtonShine() {
   return (
@@ -54,7 +55,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.9, delay: 0.15, ease: EASE }}
-        className="mt-5 max-w-md text-[16px] leading-relaxed text-ink/70"
+        className={`mt-5 max-w-md ${typo.body} text-ink/70`}
       >
         더 궁금한 점이 있다면 언제든 연락 주세요.
         <br />
@@ -71,10 +72,8 @@ export default function Contact() {
         {/* EMAIL: 라벨 + 주소 | 복사하기 */}
         <div className="flex items-center justify-between gap-4 border-b border-ink/15 pb-3">
           <div className="min-w-0 flex-1 text-left">
-            <p className="text-[11px] font-semibold tracking-wide text-ocean uppercase">
-              Email
-            </p>
-            <p className="mt-0.5 truncate text-[18px] text-ink/80">
+            <p className={typo.eyebrow}>Email</p>
+            <p className={`mt-0.5 truncate ${typo.lead} text-ink/80`}>
               {contact.email}
             </p>
           </div>
@@ -87,10 +86,8 @@ export default function Contact() {
         {/* GITHUB: 라벨 + 주소 | 바로가기 */}
         <div className="flex items-center justify-between gap-4  pb-3">
           <div className="min-w-0 flex-1 text-left">
-            <p className="text-[11px] font-semibold tracking-wide text-ocean uppercase">
-              GitHub
-            </p>
-            <p className="mt-0.5 truncate text-[18px] text-ink/80">
+            <p className={typo.eyebrow}>GitHub</p>
+            <p className={`mt-0.5 truncate ${typo.lead} text-ink/80`}>
               {githubDisplay}
             </p>
           </div>

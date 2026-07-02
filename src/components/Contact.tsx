@@ -3,22 +3,9 @@ import { motion } from "motion/react";
 import TypingText from "./TypingText";
 import { contact } from "../data/projects";
 import { typo } from "../typeScale";
+import ActionButton from "./ActionButton";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-
-// Shared glossy-blue pill (the original "이메일 보내기" button design), reused
-// by both the copy-email and open-GitHub actions.
-const ACTION_BTN =
-  "group relative shrink-0 overflow-hidden rounded-full bg-[#0871E7] px-4 py-3 text-[13px] text-white shadow-[inset_0_-3px_3px_rgba(255,255,255,0.39)] outline-1 -outline-offset-1 outline-[#0871E7]"; // text-[13px] = typo.chip
-
-function ButtonShine() {
-  return (
-    <span
-      className="absolute top-[1px] left-[10%] h-4 w-[80%] rounded-[12px] bg-gradient-to-b from-[#DEF0FC] to-transparent transition-transform duration-300 group-hover:scale-x-105"
-      aria-hidden
-    />
-  );
-}
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -77,10 +64,9 @@ export default function Contact() {
               {contact.email}
             </p>
           </div>
-          <button onClick={copyEmail} data-cursor="link" className={ACTION_BTN}>
-            <ButtonShine />
-            <span className="relative">{copied ? "복사됨 ✓" : "복사하기"}</span>
-          </button>
+          <ActionButton onClick={copyEmail}>
+            {copied ? "복사됨 ✓" : "복사하기"}
+          </ActionButton>
         </div>
 
         {/* GITHUB: 라벨 + 주소 | 바로가기 */}
@@ -91,16 +77,7 @@ export default function Contact() {
               {githubDisplay}
             </p>
           </div>
-          <a
-            href={contact.github}
-            target="_blank"
-            rel="noreferrer"
-            data-cursor="link"
-            className={ACTION_BTN}
-          >
-            <ButtonShine />
-            <span className="relative">바로가기</span>
-          </a>
+          <ActionButton href={contact.github}>바로가기</ActionButton>
         </div>
       </motion.div>
 

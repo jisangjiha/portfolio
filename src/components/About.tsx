@@ -16,10 +16,9 @@ const career = [
   },
 ];
 
-const cardBase =
-  "rounded-2xl border border-ocean/15 bg-white/60 p-5 backdrop-blur-sm";
-const cardLabel =
-  "text-[10px] font-semibold tracking-wide text-ocean uppercase";
+// 흰 박스 대신 얇은 ocean 좌측 선 (Skills 섹션과 통일된 언어)
+const cardBase = "border-l-[3px] border-ocean/55 pl-5";
+const cardLabel = "text-[16px] font-bold tracking-wide text-ocean uppercase";
 
 export default function About() {
   return (
@@ -47,26 +46,32 @@ export default function About() {
           className={cardBase}
         >
           <p className={cardLabel}>Career</p>
-          <ul className="mt-3 space-y-2">
+          <ul className="mt-4 space-y-3">
             {career.map((c) => (
               <li
                 key={c.period}
-                className="flex flex-wrap items-baseline gap-x-3 gap-y-1"
+                className="flex flex-wrap items-baseline gap-x-4 gap-y-1"
               >
-                <span className="w-[120px] shrink-0 text-[12px] text-ocean">
+                <span className="w-[160px] shrink-0 text-[16px]  text-ink">
                   {c.period}
                 </span>
-                <span className="text-[15px] font-medium text-ink">
+                <span className="text-[18px] font-medium text-ink">
                   {c.org}
                 </span>
-                <span className="text-[14px] text-ink/55">{c.role}</span>
+                <span className="text-[16px] text-ink/60">{c.role}</span>
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-[14px] leading-relaxed text-ink/75">
-            시장과 고객의 니즈를 읽으며 재고와 프로모션을 기획했던 영업MD에서,
-            사용자의 불편을 화면으로 풀어내는 프론트엔드 개발자가 되었습니다.
-            코드보다 사람을 먼저 보는 개발자가 되고자 합니다.
+          <p className="mt-5 text-[17px] leading-relaxed text-ink/80">
+            매출 데이터와 고객 니즈를 분석해 프로모션을 기획하던 영업 MD에서
+            이제는 <b>사용자의 불편을 정의하고 화면으로 풀어내는 개발자</b>가
+            되었습니다.
+            <br />
+            <b>
+              화면 뒤의 비즈니스 논리를 이해하고, 데이터 분석으로 사용자 불편을
+              해결하는 역량
+            </b>
+            으로 비즈니스와 사용자 모두를 만족시키는 솔루션을 제시하겠습니다.
           </p>
         </motion.div>
 
@@ -76,13 +81,14 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-          className={`mt-5 ${cardBase}`}
+          className={`mt-8 ${cardBase}`}
         >
-          <p className={cardLabel}>Long Gamer</p>
-          <p className="mt-3 text-[14px] leading-relaxed text-ink/75">
-            꾸준함이 제 가장 큰 강점입니다. 여러 환경에서 꾸준히 일하며 새로운
-            곳에서도 빠르게 적응하는 힘을 길렀고, 취미로 블로그와 유튜브를 몇
-            년째 운영하며 수익화까지 만들어냈습니다.
+          <p className={cardLabel}>Long Runner</p>
+          <p className="mt-4 text-[17px] leading-relaxed text-ink/80">
+            어떤 환경에서도 빠르게 적응하는 <b>유연함</b>과, 시작한 일은
+            포기하지 않는 <b>끈기</b>가 가장 큰 무기입니다. 취미로 블로그와
+            유튜브를 수년간 운영하며 <b>수익화까지 달성</b>해냈습니다. 이처럼
+            목표를 향해 지치지 않고 실행하는 끈기로 팀의 성장에 기여하겠습니다.
           </p>
         </motion.div>
       </div>

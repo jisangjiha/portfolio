@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import phoneFront from "../assets/phone_front.png";
 
-const SECTIONS = ["ABOUT", "SKILLS", "PORTFOLIO", "CONTACT"];
+const SECTIONS = ["ABOUT", "SKILLS", "PROJECT", "CONTACT"];
 const SECTION_IDS = ["about", "skills", "portfolio", "contact"];
-const GAP = 2.2; // em per LCD line (larger = more spacing between items)
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 /**
@@ -63,14 +62,12 @@ export default function TravelingPhone() {
   return (
     <div
       className="pointer-events-none fixed top-1/2 left-1/2 z-40 hidden md:block"
-      style={{ perspective: "1100px" }}
       aria-hidden
     >
       <div
         ref={wrap}
         style={{
           opacity: 0,
-          transformStyle: "preserve-3d",
           willChange: "transform, opacity",
         }}
       >
@@ -81,17 +78,36 @@ export default function TravelingPhone() {
             draggable={false}
             className="h-[72vh] max-h-[620px] w-auto drop-shadow-2xl"
           />
-          {/* LCD: clickable section list + current-position highlight (centred) */}
+          {/* LCD: full section list — all destinations always visible; the
+              highlight slides to the current section (menu + "you are here"). */}
           <div
             className="absolute overflow-hidden"
-            style={{ left: "18%", top: "16%", width: "62%", height: "31%" }}
+            style={{
+              left: "19%",
+              top: "18%",
+              width: "60%",
+              height: "29%",
+              // rounded to match the LCD's corners so the full-width selection
+              // bar (esp. first/last item) stays clipped inside the screen
+              borderRadius: "9%",
+              // `contain: paint` forces this box to clip its (composited)
+              // descendants — plain overflow:hidden leaks here because the list
+              // is promoted to its own layer by the wrapper's will-change/transform.
+              contain: "paint",
+            }}
           >
-            <ul
-              className="font-nokia absolute right-0 left-0"
+            {/* sliding selection bar — one row tall, sits behind the labels */}
+            <div
+              className="pointer-events-none absolute top-0 right-0 left-0 bg-[#2A3616]"
               style={{
-                top: "50%",
-                transform: `translateY(-${(activeDetail + 0.5) * GAP}em)`,
-                transition: "transform .45s cubic-bezier(.16,1,.3,1)",
+                height: `${100 / SECTIONS.length}%`,
+                transform: `translateY(${activeDetail * 100}%)`,
+                transition: "transform .4s cubic-bezier(.16,1,.3,1)",
+              }}
+            />
+            <ul
+              className="font-nokia absolute inset-0 flex flex-col"
+              style={{
                 fontSize: "1.7vh",
                 pointerEvents: active >= 1 ? "auto" : "none",
               }}
@@ -103,12 +119,11 @@ export default function TravelingPhone() {
                     key={s}
                     data-cursor="link"
                     onClick={() => go(SECTION_IDS[i])}
-                    className={`flex items-center gap-1 px-1.5 whitespace-nowrap transition-opacity ${
+                    className={`flex flex-1 items-center gap-1 px-1.5 whitespace-nowrap transition-colors duration-300 ${
                       on
-                        ? "bg-[#2A3616] text-[#c7d99a] opacity-100"
-                        : "text-[#2A3616] opacity-40 hover:opacity-80"
+                        ? "text-[#c7d99a]"
+                        : "text-[#2A3616]/50 hover:text-[#2A3616]"
                     }`}
-                    style={{ height: `${GAP}em` }}
                   >
                     <span style={{ width: "1.1em" }}>{i + 1}</span>
                     {s}

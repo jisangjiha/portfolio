@@ -62,9 +62,9 @@ export default function SummerBackground() {
       {/* Fixed typing LCD — stays on the phone screen, fades out on scroll */}
       <div
         ref={typingRef}
-        className="pointer-events-none fixed bottom-[33%] left-[48.5%] z-20 flex w-[74px] -translate-x-1/2 justify-start text-left sm:w-[90px] md:left-[47.5%] lg:left-[48.5%]"
+        className="pointer-events-none fixed bottom-[32%] left-[48.5%] z-20 flex w-[86px] -translate-x-1/2 justify-start text-left sm:w-[108px] md:left-[47.5%] lg:left-[48.5%]"
       >
-        <TypingMessages className="text-[7px] sm:text-[9px]" />
+        <TypingMessages className="text-[9px] sm:text-[11px]" />
       </div>
     </>
   );

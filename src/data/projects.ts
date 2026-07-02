@@ -140,7 +140,8 @@ export const projects: Project[] = [
           },
           {
             title: "불필요한 렌더링",
-            problem: "불필요한 상태 변화를 트리거해 컴포넌트가 과도하게 렌더링됨.",
+            problem:
+              "불필요한 상태 변화를 트리거해 컴포넌트가 과도하게 렌더링됨.",
             solution:
               "UI에 실제 영향을 주는 상태만 관리하도록 개선하고, useMemo·useCallback으로 메모이제이션하여 불필요한 렌더링을 방지.",
           },
@@ -287,12 +288,15 @@ export const projects: Project[] = [
         items: [
           {
             title: "장바구니 수량 동기화",
-            problem: "수량 변경 시 상태 업데이트 지연으로 UI와 실제 데이터가 불일치.",
-            solution: "useEffect로 수량 변경마다 상태를 즉시 업데이트해 UI에 반영.",
+            problem:
+              "수량 변경 시 상태 업데이트 지연으로 UI와 실제 데이터가 불일치.",
+            solution:
+              "useEffect로 수량 변경마다 상태를 즉시 업데이트해 UI에 반영.",
           },
           {
             title: "리렌더링 성능 저하",
-            problem: "상태 변경으로 불필요한 리렌더링이 발생해 성능 저하가 우려됨.",
+            problem:
+              "상태 변경으로 불필요한 리렌더링이 발생해 성능 저하가 우려됨.",
             solution:
               "React.memo로 컴포넌트를 메모이제이션하고 useCallback·useMemo로 함수·값을 캐싱해 불필요한 리렌더링을 방지.",
           },
@@ -324,5 +328,4 @@ export const projects: Project[] = [
 export const contact = {
   email: "nobledjs@naver.com",
   github: "https://github.com/jisangjiha",
-  phone: "010-3347-2408",
 };

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { Project, DetailBlock } from "../data/projects";
+import { typo } from "../typeScale";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -8,10 +9,8 @@ function Block({ block }: { block: DetailBlock }) {
   if (block.type === "text") {
     return (
       <section>
-        <h4 className="mb-2 text-[12px] font-semibold tracking-wide text-ocean uppercase">
-          {block.title}
-        </h4>
-        <p className="text-[14px] leading-relaxed text-ink/75">{block.body}</p>
+        <h4 className={`mb-2 ${typo.eyebrow}`}>{block.title}</h4>
+        <p className={`${typo.body} text-ink/75`}>{block.body}</p>
       </section>
     );
   }
@@ -26,9 +25,9 @@ function Block({ block }: { block: DetailBlock }) {
             <li key={it.head} className="flex gap-2">
               <span className="mt-[3px] text-ocean">▸</span>
               <div>
-                <p className="text-[14px] font-medium text-ink">{it.head}</p>
+                <p className={`${typo.body} font-medium text-ink`}>{it.head}</p>
                 {it.body && (
-                  <p className="text-[13px] leading-relaxed text-ink/65">
+                  <p className={`${typo.meta} leading-relaxed text-ink/65`}>
                     {it.body}
                   </p>
                 )}
@@ -42,9 +41,7 @@ function Block({ block }: { block: DetailBlock }) {
   // trouble
   return (
     <section>
-      <h4 className="mb-2.5 text-[12px] font-semibold tracking-wide text-ocean uppercase">
-        {block.title}
-      </h4>
+      <h4 className={`mb-2.5 ${typo.eyebrow}`}>{block.title}</h4>
       <div className="space-y-4">
         {block.items.map((it, i) => (
           <div
@@ -52,21 +49,21 @@ function Block({ block }: { block: DetailBlock }) {
             className="rounded-xl border border-ink/10 bg-[#f6fafc] p-4"
           >
             {it.title && (
-              <p className="mb-2 text-[14px] font-semibold text-ink">
+              <p className={`mb-2 ${typo.bodySm} font-semibold text-ink`}>
                 {it.title}
               </p>
             )}
-            <p className="text-[13px] leading-relaxed text-ink/75">
+            <p className={`${typo.meta} leading-relaxed text-ink/75`}>
               <span className="mr-1">🚨</span>
               <span className="font-medium text-ink/90">문제</span> {it.problem}
             </p>
-            <p className="mt-1.5 text-[13px] leading-relaxed text-ink/75">
+            <p className={`mt-1.5 ${typo.meta} leading-relaxed text-ink/75`}>
               <span className="mr-1">💡</span>
               <span className="font-medium text-ink/90">해결</span>{" "}
               {it.solution}
             </p>
             {it.learned && (
-              <p className="mt-1.5 text-[13px] leading-relaxed text-ink/75">
+              <p className={`mt-1.5 ${typo.meta} leading-relaxed text-ink/75`}>
                 <span className="mr-1">🤓</span>
                 <span className="font-medium text-ink/90">배운 점</span>{" "}
                 {it.learned}
@@ -132,13 +129,15 @@ export default function ProjectModal({
             {/* header */}
             <div className="flex items-start justify-between gap-4 border-b border-ink/10 px-6 py-5">
               <div className="min-w-0">
-                <span className="font-nokia text-[10px] tracking-wide text-ocean">
+                <span className={typo.eyebrowPixel}>
                   {project.group} · {project.period}
                 </span>
                 <h3 className="font-instrument text-[30px] leading-none tracking-tight text-ink">
                   {project.name}
                 </h3>
-                <p className="mt-1 text-[13px] text-ink/60">{project.tagline}</p>
+                <p className={`mt-1 ${typo.bodySm} text-ink/60`}>
+                  {project.tagline}
+                </p>
               </div>
               <button
                 ref={closeRef}
@@ -156,7 +155,7 @@ export default function ProjectModal({
                 {project.stack.map((s) => (
                   <span
                     key={s}
-                    className="rounded-md bg-ocean/10 px-2 py-1 text-[11px] text-ocean"
+                    className={`rounded-md bg-ocean/10 px-2 py-1 ${typo.chip} text-ocean`}
                   >
                     {s}
                   </span>
@@ -174,7 +173,7 @@ export default function ProjectModal({
                     href={l.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-[14px] font-medium text-accent transition-opacity hover:opacity-60"
+                    className={`inline-flex items-center gap-1 ${typo.bodySm} font-medium text-accent transition-opacity hover:opacity-60`}
                   >
                     {l.label}
                     <span aria-hidden>↗</span>

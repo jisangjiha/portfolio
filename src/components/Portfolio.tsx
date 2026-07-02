@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import TypingText from "./TypingText";
 import { projects } from "../data/projects";
 import ProjectModal from "./ProjectModal";
+import { typo } from "../typeScale";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -13,15 +15,12 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="scene relative flex h-screen w-full items-center justify-center overflow-hidden px-6 py-20 md:justify-start md:pl-[40vw]"
+      className="scene relative flex min-h-screen w-full items-center justify-center px-6 py-20 md:justify-start md:pl-[40vw]"
     >
-      <div className="mx-auto w-full max-w-3xl">
+      <div className="w-full max-w-2xl">
         <div className="mb-5">
-          <p className="font-nokia mb-2 text-[12px] tracking-widest text-ocean">
-            03 — PORTFOLIO
-          </p>
-          <h2 className="font-instrument text-[28px] leading-none tracking-tight text-ink md:text-[40px]">
-            팀 · 개인 프로젝트
+          <h2 className="font-round text-[22px] leading-tight tracking-tight text-ink md:text-[32px]">
+            <TypingText text="팀 · 개인 프로젝트" />
           </h2>
         </div>
 
@@ -31,7 +30,7 @@ export default function Portfolio() {
             <button
               key={proj.name}
               onClick={() => setSelected(i)}
-              className={`rounded-full px-3 py-1.5 text-[12px] transition-colors ${
+              className={`rounded-full px-3 py-1.5 ${typo.chip} transition-colors ${
                 i === selected
                   ? "bg-ocean text-white"
                   : "border border-ink/15 bg-white/70 text-ink"
@@ -78,28 +77,24 @@ export default function Portfolio() {
                 <h3 className="font-instrument text-[26px] leading-none tracking-tight text-ink md:text-[32px]">
                   {p.name}
                 </h3>
-                <span className="shrink-0 text-[12px] text-ink/45">
+                <span className={`shrink-0 ${typo.meta} text-ink/45`}>
                   {p.period}
                 </span>
               </div>
-              <p className="mt-2 text-[14px] leading-relaxed text-ink/75">
-                {p.tagline}
-              </p>
+              <p className={`mt-2 ${typo.body} text-ink/75`}>{p.tagline}</p>
               {p.team && (
-                <p className="mt-1 text-[12px] text-ink/45">팀 구성 · {p.team}</p>
+                <p className={`mt-1 ${typo.meta} text-ink/45`}>
+                  팀 구성 · {p.team}
+                </p>
               )}
               <div className="mt-4">
-                <p className="font-nokia text-[11px] tracking-wide text-ocean">
-                  기획 의도
-                </p>
-                <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink/75">
-                  {p.intent}
-                </p>
+                <p className={typo.eyebrowPixel}>기획 의도</p>
+                <p className={`mt-1.5 ${typo.bodySm} text-ink/75`}>{p.intent}</p>
               </div>
               <div className="mt-auto flex flex-wrap items-center gap-4 pt-5">
                 <button
                   onClick={() => setOpen(true)}
-                  className="rounded-full bg-ink px-4 py-2 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
+                  className={`rounded-full bg-ink px-4 py-2 ${typo.chip} font-medium text-white transition-opacity hover:opacity-85`}
                 >
                   Read more
                 </button>
@@ -109,7 +104,7 @@ export default function Portfolio() {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-[14px] font-medium text-accent transition-opacity hover:opacity-60"
+                    className={`inline-flex items-center gap-1 ${typo.bodySm} font-medium text-accent transition-opacity hover:opacity-60`}
                   >
                     {link.label}
                     <span aria-hidden>↗</span>

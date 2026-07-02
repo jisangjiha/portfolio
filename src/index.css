@@ -1,12 +1,24 @@
 @import url("https://db.onlinewebfonts.com/c/440b53b1a1c65037f944ff19259d8014?family=Nokia+Cellphone+FC+Small");
 @import "tailwindcss";
 
+/* 둥근모꼴 (DungGeunMo) — rounded pixel font for section titles */
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/DungGeunMo.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  /* Latin uses Inter/Instrument; Korean falls back to a matching serif automatically */
-  --font-instrument: "Instrument Serif", "Song Myung", serif;
-  --font-serif: "Instrument Serif", "Song Myung", serif;
-  --font-sans: "Inter", "Noto Serif KR", sans-serif;
-  --font-kr: "Noto Serif KR", serif;
+  /* Content text: Latin = Instrument Serif, Korean = Gowun Batang */
+  --font-instrument: "Instrument Serif", "Gowun Batang", serif;
+  --font-serif: "Instrument Serif", "Gowun Batang", serif;
+  --font-sans: "Instrument Serif", "Gowun Batang", serif;
+  --font-kr: "Gowun Batang", serif;
+  /* section titles */
+  --font-round: "DungGeunMo", "Nokia Cellphone FC Small", monospace;
   --font-nokia: "Nokia Cellphone FC Small", monospace;
 
   /* Cool summer palette (sampled from the hero video) */
@@ -21,7 +33,23 @@
 }
 
 @utility font-instrument {
-  font-family: "Instrument Serif", "Song Myung", serif;
+  font-family: "Instrument Serif", "Gowun Batang", serif;
+}
+
+@utility font-round {
+  font-family: "DungGeunMo", "Nokia Cellphone FC Small", monospace;
+}
+
+/* typing caret blink (TypingText) */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
 }
 
 :root {

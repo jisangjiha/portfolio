@@ -1,9 +1,9 @@
 # Jisang — Portfolio
 
-> 사용자 경험과 문제 해결에 집중하는 프론트엔드 개발자 **홍지상(Jisang Hong)**의 포트폴리오 원페이지 사이트
+> 사용자 경험과 문제 해결에 집중하는 프론트엔드 개발자 홍지상(Jisang Hong)의 포트폴리오 원페이지 사이트
 
 <p>
-  <a href="https://portfolio-two-green-ize9itlxvm.vercel.app/"><strong>🌐 라이브 데모 바로가기 →</strong></a>
+  <a href="https://portfolio-two-green-ize9itlxvm.vercel.app/"><strong>🌐 라이브 바로가기 →</strong></a>
 </p>
 
 [![Live](https://img.shields.io/badge/Live-Vercel-000000?logo=vercel)](https://portfolio-two-green-ize9itlxvm.vercel.app/)
@@ -18,7 +18,7 @@
   </a>
 </p>
 
-<p align="center"><em>여름 해변에 놓인 y2k 핸드폰 — 화면(LCD)의 타이핑 메시지가 방문자를 맞이하고, 핸드폰을 클릭하면 여정이 시작됩니다.</em></p>
+<p align="center"><em>여름 해변에 놓인 레트로 핸드폰 — 화면(LCD)의 타이핑 메시지가 방문자를 맞이하고, 핸드폰을 클릭 또는 아래로 스크롤하면 여정이 시작됩니다.</em></p>
 
 ---
 
@@ -43,16 +43,6 @@
 | **Deploy**    | Vercel                                                           |
 | **Fonts**     | Instrument Serif · Gowun Batang · Nokia Cellphone FC Small(도트) |
 
-## 주요 기능 & 인터랙션
-
-- 🏖️ **뷰포트 고정 배경** — 해변 영상이 화면에 고정되고, 스크롤을 내리면 블러 처리된 블루 워시가 서서히 덮여 섹션이 "끊기지 않고" 전환됩니다. (`SummerBackground`)
-- 📱 **핸드폰** — 스크롤에 따라 상단 중앙에서 등장한 폰이 왼쪽으로 이동하며 도킹되고, LCD에 `ABOUT · SKILLS · PROJECT · CONTACT` 목록과 현재 섹션을 하이라이트해 **메뉴이자 "you are here" 인디케이터** 역할을 합니다. (`TravelingPhone`)
-- ⌨️ **도트 타이핑 메시지** — 폰 LCD 위에 `Nice to meet u!` → `I'm Jisang.` → `Let's scroll!` 가 순환 타이핑됩니다. 깜빡이는 픽셀 커서까지 재현. (`TypingMessages`)
-- ⭐ **불가사리 커스텀 커서** — 기본 커서를 숨기고, rAF lerp 루프로 부드럽게 따라오는 불가사리 커서로 대체. hover/press 시 상태가 바뀝니다. (`CustomCursor`)
-- 🏝️ **모래 알갱이 트레일** — 커서를 움직이면 모래알이 튀어오르고 중력에 따라 떨어지며 사라지는 Canvas 기반 트레일. (`SandTrail`)
-- 📜 **부드러운 스크롤 & 등장 애니메이션** — 섹션 앵커 스무스 스크롤 + motion 기반 fade/slide-in.
-- 📱 **반응형** — 모바일 / 태블릿 / 데스크톱 대응. 무거운 커서·트레일·여행 폰 효과는 `(hover: hover)` 데스크톱에서만 활성화해 터치 기기 성능을 보호합니다.
-
 ## 🤖 Claude Code & AI 활용
 
 이 프로젝트는 **[Claude Code](https://claude.com/claude-code)를 개발 파트너로 적극 활용**해 기획부터 구현·리팩토링까지 진행했습니다. AI를 "코드를 대신 짜주는 도구"가 아니라, **의도를 구조화하고 반복 작업을 가속하는 협업자**로 사용한 것이 핵심입니다.
@@ -68,6 +58,16 @@
 
 - **AI에 의존하지 않는 로직 (개인 프로젝트에서의 원칙)**
   한편, 포트폴리오에 담긴 개인 프로젝트(예: **Omok 오목**)는 **생성형 AI 없이 스스로 규칙을 분석·구현**하며 문제 해결력을 길렀습니다. 즉 *AI를 생산성 도구로 적극 활용하되, 핵심 로직에 대한 이해와 판단은 직접 갖는다*는 것이 저의 개발 태도입니다.
+
+## 주요 기능 & 인터랙션
+
+- 🏖️ **뷰포트 고정 배경** — 해변 영상이 화면에 고정되고, 스크롤을 내리면 블러 처리된 블루 워시가 서서히 덮여 섹션이 "끊기지 않고" 전환됩니다. (`SummerBackground`)
+- 📱 **핸드폰** — 스크롤에 따라 상단 중앙에서 등장한 폰이 왼쪽으로 이동하며 도킹되고, LCD에 `ABOUT · SKILLS · PROJECT · CONTACT` 목록과 현재 섹션을 하이라이트해 **메뉴이자 "you are here" 인디케이터** 역할을 합니다. (`TravelingPhone`)
+- ⌨️ **도트 타이핑 메시지** — 폰 LCD 위에 `Nice to meet u!` → `I'm Jisang.` → `Let's scroll!` 가 순환 타이핑됩니다. 깜빡이는 픽셀 커서까지 재현. (`TypingMessages`)
+- ⭐ **불가사리 커스텀 커서** — 기본 커서를 숨기고, rAF lerp 루프로 부드럽게 따라오는 불가사리 커서로 대체. hover/press 시 상태가 바뀝니다. (`CustomCursor`)
+- 🏝️ **모래 알갱이 트레일** — 커서를 움직이면 모래알이 튀어오르고 중력에 따라 떨어지며 사라지는 Canvas 기반 트레일. (`SandTrail`)
+- 📜 **부드러운 스크롤 & 등장 애니메이션** — 섹션 앵커 스무스 스크롤 + motion 기반 fade/slide-in.
+- 📱 **반응형** — 모바일 / 태블릿 / 데스크톱 대응. 무거운 커서·트레일·여행 폰 효과는 `(hover: hover)` 데스크톱에서만 활성화해 터치 기기 성능을 보호합니다.
 
 ## 프로젝트 구조
 

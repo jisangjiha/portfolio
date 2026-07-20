@@ -1,6 +1,6 @@
 import zzalang from "../assets/zzalang.png";
 import mando from "../assets/mando.png";
-import omok from "../assets/omok.png";
+import omok from "../assets/omok_new.png";
 import doit from "../assets/doit.png";
 import bagel from "../assets/bagel.png";
 
